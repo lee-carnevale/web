@@ -3,13 +3,30 @@ const ctx = canvas.getContext('2d');
 
 function drawEV() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = '#1976d2';
-  ctx.fillRect(50, 150, 300, 80); // body
-  ctx.fillRect(100, 110, 150, 40); // cabin
-  ctx.fillStyle = '#555';
+
+  // randomize base color
+  const hues = [200, 210, 220, 230];
+  const baseHue = hues[Math.floor(Math.random() * hues.length)];
+  ctx.fillStyle = `hsl(${baseHue}, 70%, 50%)`;
+
+  // body size and position
+  const bodyWidth = 250 + Math.random() * 100;
+  const bodyHeight = 70;
+  const bodyX = (canvas.width - bodyWidth) / 2;
+  const bodyY = canvas.height / 2;
+  ctx.fillRect(bodyX, bodyY, bodyWidth, bodyHeight);
+
+  // cabin
+  const cabinWidth = bodyWidth * 0.5;
+  const cabinHeight = 40;
+  ctx.fillRect(bodyX + bodyWidth * 0.25, bodyY - cabinHeight, cabinWidth, cabinHeight);
+
+  // wheels
+  ctx.fillStyle = '#444';
+  const wheelRadius = 25 + Math.random() * 5;
   ctx.beginPath();
-  ctx.arc(120, 230, 30, 0, Math.PI * 2); // wheel 1
-  ctx.arc(280, 230, 30, 0, Math.PI * 2); // wheel 2
+  ctx.arc(bodyX + wheelRadius * 2, bodyY + bodyHeight, wheelRadius, 0, Math.PI * 2);
+  ctx.arc(bodyX + bodyWidth - wheelRadius * 2, bodyY + bodyHeight, wheelRadius, 0, Math.PI * 2);
   ctx.fill();
 }
 
@@ -18,8 +35,12 @@ drawEV();
 const facts = [
   'Electric vehicles produce zero tailpipe emissions.',
   'The first practical EV was built in the 1880s.',
+  'Lithium-ion batteries power most modern EVs.',
+  'Solid-state batteries promise faster charging.',
+  'Regenerative braking helps charge the battery while driving.',
+  'Fast chargers can add 200 miles of range in about 30 minutes.',
   'EV batteries can be recycled for other uses.',
-  'Charging infrastructure is rapidly expanding.',
+  'Charging infrastructure is rapidly expanding.'
 ];
 
 function displayFact() {
