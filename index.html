@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EV Showcase</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>EV Showcase</h1>
+    <nav>
+      <ul>
+        <li><a href="#cars">Cars</a></li>
+        <li><a href="#bikes">Bikes</a></li>
+        <li><a href="#buses">Buses</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="hero">
+      <canvas id="evCanvas" width="600" height="300"></canvas>
+    </section>
+    <section id="categories">
+      <div class="card" id="cars">
+        <h2>Cars</h2>
+        <p>Electric cars for everyday use.</p>
+      </div>
+      <div class="card" id="bikes">
+        <h2>Bikes</h2>
+        <p>Eco-friendly electric bikes.</p>
+      </div>
+      <div class="card" id="buses">
+        <h2>Buses</h2>
+        <p>Efficient electric buses for the city.</p>
+      </div>
+    </section>
+    <aside id="widget">
+      <h3>Random EV Fact</h3>
+      <p id="evFact"></p>
+    </aside>
+  </main>
+  <footer>
+    <p>&copy; 2023 EV Showcase</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
